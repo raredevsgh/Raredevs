@@ -6,9 +6,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        observatory: resolve(__dirname, "observatory.html"),
-        expedition: resolve(__dirname, "expedition.html"),
-        traces: resolve(__dirname, "traces.html"),
+        about: resolve(__dirname, "about.html"),
+        services: resolve(__dirname, "services.html"),
+        projects: resolve(__dirname, "projects.html"),
         contact: resolve(__dirname, "contact.html"),
       },
     },
