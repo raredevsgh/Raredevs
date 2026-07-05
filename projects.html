@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Rare Devs</title>
-    <link rel="icon" href="/global/site_logo.png" type="image/png" />
+    <link rel="icon" href="/global/site_logo.svg" type="image/svg+xml" />
     <meta name="author" content="Codegrid" />
 
     <link rel="stylesheet" href="/globals.css" />
@@ -130,7 +130,15 @@
         </div>
 
         <div class="traces-preview-img">
-          <img src="/traces/traces_01.jpg" alt="" />
+          <image
+            src="/traces/traces_01.webp"
+            alt=""
+            width="1200"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            style="width: 100%; height: auto; object-fit: cover;"
+          />
         </div>
       </div>
     </section>
@@ -153,5 +161,6 @@
     <script type="module" src="/js/interactive-grid.js"></script>
     <script type="module" src="/js/transition.js"></script>
     <script type="module" src="/js/traces.js"></script>
+    <script type="module" src="/js/image.js"></script>
   </body>
 </html>
