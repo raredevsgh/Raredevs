@@ -13,12 +13,11 @@ function initLenisScroll() {
   const isMobile = window.innerWidth <= 1000;
 
   lenis = new Lenis({
-    duration: isMobile ? 0.75 : 0.9,
-    lerp: isMobile ? 0.08 : 0.085,
+    duration: isMobile ? 0.8 : 1.2,
+    lerp: isMobile ? 0.075 : 0.1,
     smoothWheel: true,
     syncTouch: true,
-    touchMultiplier: isMobile ? 1.2 : 1.8,
-    wheelMultiplier: 1,
+    touchMultiplier: isMobile ? 1.5 : 2,
   });
 
   lenis.on("scroll", ScrollTrigger.update);

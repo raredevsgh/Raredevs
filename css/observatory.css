@@ -235,67 +235,11 @@
   .routine-slider
   .routine-slider-wrapper
   .routine-block
-  .routine-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.routine
-  .routine-container
-  .routine-copy
-  .container
-  .routine-slider
-  .routine-slider-wrapper
-  .routine-block
   .routine-icon
-  .stack-visual {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.85rem;
+  img {
   width: 100%;
-}
-
-.routine
-  .routine-container
-  .routine-copy
-  .container
-  .routine-slider
-  .routine-slider-wrapper
-  .routine-block
-  .routine-icon
-  .stack-visual.dual-logos {
-  gap: 0.5rem;
-}
-
-.routine
-  .routine-container
-  .routine-copy
-  .container
-  .routine-slider
-  .routine-slider-wrapper
-  .routine-block
-  .routine-icon
-  .tech-logo {
-  width: min(8rem, 70%);
-  height: auto;
-  max-height: 8rem;
-  filter: drop-shadow(0 0.35rem 0.8rem rgba(0, 0, 0, 0.28));
-}
-
-.routine
-  .routine-container
-  .routine-copy
-  .container
-  .routine-slider
-  .routine-slider-wrapper
-  .routine-block
-  .routine-icon
-  .tech-logo.small {
-  width: min(4.2rem, 45%);
-  max-height: 4.2rem;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* observatory - about section */
@@ -418,31 +362,18 @@
 
 .team .cards .card .card-content {
   width: 100%;
-  min-height: 110px;
-  padding: 1.25rem 1.5rem;
-  background: rgba(16, 16, 16, 0.88);
-  backdrop-filter: blur(8px);
-  border-radius: 0 0 0.75rem 0.75rem;
-  position: relative;
-  z-index: 1;
+  height: 60px;
 }
 
 .team .cards .card .card-content h3 {
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   letter-spacing: clamp(0rem, -0.5vw, -0.05rem);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
   color: var(--base-100);
-  line-height: 1.05;
-  text-shadow: 0 0 0.85rem rgba(0, 0, 0, 0.55);
 }
 
 .team .cards .card .card-content p {
-  display: block;
-  margin-top: 0.4rem;
-  color: rgba(242, 238, 218, 0.95);
-  font-size: 1rem;
-  line-height: 1.35;
-  text-shadow: 0 0 0.35rem rgba(0, 0, 0, 0.45);
+  color: var(--base-200);
 }
 
 .team .empty {
