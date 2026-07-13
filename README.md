@@ -1,15 +1,19 @@
 <div align="center">
 
-```text
+<img src="global/site_logo.png" width="120" alt="Rare Devs Studio Logo" />
+
+<br />
+<br />
+
+<pre>
   ____                  ____                     
  |  _ \ __ _ _ __ ___  |  _ \  _____   _____ ___ 
  | |_) / _` | '__/ _ \ | | | |/ _ \ \ / / __/ __|
- |  _ < (_| | | |  __/ | |_| |  __/\ V /\__ \__ \
+ |  _ &lt; (_| | | |  __/ | |_| |  __/\ V /\__ \__ \
  |_| \_\__,_|_|  \___| |____/ \___| \_/ |___/___/
-                                                 
-```
+</pre>
 
-# 🌌 RARE DEVS STUDIO
+# RARE DEVS STUDIO
 
 ### **Every product has a story. We help build it.**
 
@@ -143,7 +147,7 @@ CONTACT_RECEIVER_EMAIL=your_inbox@domain.com
 ### Typography
 - **Headlines**: Custom display font **SCHABO** for heavy titles.
 - **System details**: Styled in **Geist Mono** for structural technical text.
-- **Body copy**: Fluid responsive sizing using clamp functions.
+- **Body copy**: Responsive clamp layouts for optimal readability.
 </details>
 
 <details>
