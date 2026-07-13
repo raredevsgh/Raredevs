@@ -546,6 +546,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 10rem;
 }
 
 .cta .cta-content {
@@ -735,6 +736,10 @@
   .featured-missions .featured-missions-list {
     width: 100%;
     gap: 4.5rem;
+  }
+
+  .cta {
+    padding-top: 0;
   }
 
   .cta .cta-row .cta-card {
