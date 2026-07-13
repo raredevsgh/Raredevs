@@ -380,9 +380,7 @@
   overflow: hidden;
 }
 
-.team .cards .card .card-img img {
-  filter: saturate(0) sepia(1) brightness(0.85);
-}
+
 
 .team .cards .card .card-content {
   width: 100%;
