@@ -336,7 +336,7 @@
 
 .team .team-counter .count .count-container {
   position: relative;
-  transform: translateY(150px);
+  transform: translateY(0);
   will-change: transform;
 }
 

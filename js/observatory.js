@@ -48,6 +48,7 @@ function initTeamCards() {
 
   const stickyHeight = window.innerHeight * 7;
   const totalCards = cards.length;
+  const totalSteps = Math.max(1, Math.min(totalCards, countContainer.children.length));
 
   function getRadius() {
     return window.innerWidth < 900
@@ -84,19 +85,19 @@ function initTeamCards() {
   }
 
   function updateTeamCounter(progress) {
-    const positions = [150, 0, -150, -300, -450, -600, -750];
     const startProgress = 0.15;
     const endProgress = 0.9;
     const range = endProgress - startProgress;
+    const positions = Array.from({ length: totalSteps }, (_, index) => -index * 150);
 
     let index;
     if (progress < startProgress) {
       index = 0;
     } else if (progress > endProgress) {
-      index = 6;
+      index = totalSteps - 1;
     } else {
       const normalizedProgress = (progress - startProgress) / range;
-      index = Math.min(6, Math.floor(normalizedProgress * 7));
+      index = Math.min(totalSteps - 1, Math.floor(normalizedProgress * totalSteps));
     }
 
     const targetY = positions[index];
