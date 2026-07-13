@@ -340,7 +340,7 @@
 }
 
 /* Process Card section */
-.proces {
+.process {
   position: relative;
   display: flex;
   justify-content: center;
@@ -354,15 +354,20 @@
   position: absolute;
   top: 20%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  
+  transform: translate(-50%, -50%); 
+ 
 }
 
 .sticky-header h1 {
   position: relative;
+  padding: 0 2rem;
+  letter-spacing: 1.8px;
   text-align: center;
   will-change: transform, opacity;
   transform: translateY(40px);
   opacity: 0;
+  width: 100%;
 }
 
 .card-container {
