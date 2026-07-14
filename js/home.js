@@ -111,150 +111,142 @@ function initProcessCardAnimation() {
   function initAnimations() {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-    const mm = gsap.matchMedia();
+    const isMobile = window.innerWidth < 1000;
+    const startWidth = isMobile ? 90 : 75;
+    const endWidth = isMobile ? 75 : 60;
 
-    mm.add("(max-width: 999px)", () => {
-      processCards.forEach((el) => (el.style = ""));
-      cardContainer.style = "";
-      stickyHeader.style = "";
-      return {};
-    });
+    ScrollTrigger.create({
+      trigger: processSection,
+      start: "top top",
+      end: `+=${window.innerHeight * (isMobile ? 3 : 4)}px`,
+      scrub: 1,
+      pin: true,
+      pinSpacing: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
 
-    mm.add("(min-width: 1000px)", () => {
-      ScrollTrigger.create({
-        trigger: processSection,
-        start: "top top",
-        end: `+=${window.innerHeight * 4}px`,
-        scrub: 1,
-        pin: true,
-        pinSpacing: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
+        if (progress >= 0.1 && progress <= 0.25) {
+          const headerProgress = gsap.utils.mapRange(
+            0.1,
+            0.25,
+            0,
+            1,
+            progress
+          );
+          const yValue = gsap.utils.mapRange(0, 1, 40, 0, headerProgress);
+          const opacityValue = gsap.utils.mapRange(
+            0,
+            1,
+            0,
+            1,
+            headerProgress
+          );
 
-          if (progress >= 0.1 && progress <= 0.25) {
-            const headerProgress = gsap.utils.mapRange(
-              0.1,
-              0.25,
-              0,
-              1,
-              progress
-            );
-            const yValue = gsap.utils.mapRange(0, 1, 40, 0, headerProgress);
-            const opacityValue = gsap.utils.mapRange(
-              0,
-              1,
-              0,
-              1,
-              headerProgress
-            );
+          gsap.set(stickyHeader, {
+            y: yValue,
+            opacity: opacityValue,
+          });
+        } else if (progress < 0.1) {
+          gsap.set(stickyHeader, {
+            y: 40,
+            opacity: 0,
+          });
+        } else if (progress > 0.25) {
+          gsap.set(stickyHeader, {
+            y: 0,
+            opacity: 1,
+          });
+        }
 
-            gsap.set(stickyHeader, {
-              y: yValue,
-              opacity: opacityValue,
-            });
-          } else if (progress < 0.1) {
-            gsap.set(stickyHeader, {
-              y: 40,
-              opacity: 0,
-            });
-          } else if (progress > 0.25) {
-            gsap.set(stickyHeader, {
-              y: 0,
-              opacity: 1,
-            });
-          }
+        if (progress <= 0.25) {
+          const widthPercentage = gsap.utils.mapRange(
+            0,
+            0.25,
+            startWidth,
+            endWidth,
+            progress
+          );
+          gsap.set(cardContainer, { width: `${widthPercentage}%` });
+        } else {
+          gsap.set(cardContainer, { width: `${endWidth}%` });
+        }
 
-          if (progress <= 0.25) {
-            const widthPercentage = gsap.utils.mapRange(
-              0,
-              0.25,
-              75,
-              60,
-              progress
-            );
-            gsap.set(cardContainer, { width: `${widthPercentage}%` });
-          } else {
-            gsap.set(cardContainer, { width: "60%" });
-          }
+        if (progress >= 0.35 && !isGapAnimationCompleted) {
+          gsap.to(cardContainer, {
+            gap: isMobile ? "10px" : "20px",
+            duration: 0.5,
+            ease: "power3.out",
+          });
 
-          if (progress >= 0.35 && !isGapAnimationCompleted) {
-            gsap.to(cardContainer, {
-              gap: "20px",
-              duration: 0.5,
-              ease: "power3.out",
-            });
+          gsap.to([cardOne, cardTwo, cardThree], {
+            borderRadius: "20px",
+            duration: 0.5,
+            ease: "power3.out",
+          });
 
-            gsap.to([cardOne, cardTwo, cardThree], {
-              borderRadius: "20px",
-              duration: 0.5,
-              ease: "power3.out",
-            });
+          isGapAnimationCompleted = true;
+        } else if (progress < 0.35 && isGapAnimationCompleted) {
+          gsap.to(cardContainer, {
+            gap: "0px",
+            duration: 0.5,
+            ease: "power3.out",
+          });
 
-            isGapAnimationCompleted = true;
-          } else if (progress < 0.35 && isGapAnimationCompleted) {
-            gsap.to(cardContainer, {
-              gap: "0px",
-              duration: 0.5,
-              ease: "power3.out",
-            });
+          gsap.to(cardOne, {
+            borderRadius: "20px 0 0 20px",
+            duration: 0.5,
+            ease: "power3.out",
+          });
 
-            gsap.to(cardOne, {
-              borderRadius: "20px 0 0 20px",
-              duration: 0.5,
-              ease: "power3.out",
-            });
+          gsap.to(cardTwo, {
+            borderRadius: "0px",
+            duration: 0.5,
+            ease: "power3.out",
+          });
 
-            gsap.to(cardTwo, {
-              borderRadius: "0px",
-              duration: 0.5,
-              ease: "power3.out",
-            });
+          gsap.to(cardThree, {
+            borderRadius: "0 20px 20px 0",
+            duration: 0.5,
+            ease: "power3.out",
+          });
 
-            gsap.to(cardThree, {
-              borderRadius: "0 20px 20px 0",
-              duration: 0.5,
-              ease: "power3.out",
-            });
+          isGapAnimationCompleted = false;
+        }
 
-            isGapAnimationCompleted = false;
-          }
+        if (progress >= 0.7 && !isFlipAnimationCompleted) {
+          gsap.to(processCards, {
+            rotationY: 180,
+            duration: 0.75,
+            ease: "power3.inOut",
+            stagger: 0.1,
+          });
 
-          if (progress >= 0.7 && !isFlipAnimationCompleted) {
-            gsap.to(processCards, {
-              rotationY: 180,
-              duration: 0.75,
-              ease: "power3.inOut",
-              stagger: 0.1,
-            });
+          gsap.to([cardOne, cardThree], {
+            y: isMobile ? 15 : 30,
+            rotationZ: (i) => isMobile ? [-8, 8][i] : [-15, 15][i],
+            duration: 0.75,
+            ease: "power3.inOut",
+          });
 
-            gsap.to([cardOne, cardThree], {
-              y: 30,
-              rotationZ: (i) => [-15, 15][i],
-              duration: 0.75,
-              ease: "power3.inOut",
-            });
+          isFlipAnimationCompleted = true;
+        } else if (progress < 0.7 && isFlipAnimationCompleted) {
+          gsap.to(processCards, {
+            rotationY: 0,
+            duration: 0.75,
+            ease: "power3.inOut",
+            stagger: -0.1,
+          });
 
-            isFlipAnimationCompleted = true;
-          } else if (progress < 0.7 && isFlipAnimationCompleted) {
-            gsap.to(processCards, {
-              rotationY: 0,
-              duration: 0.75,
-              ease: "power3.inOut",
-              stagger: -0.1,
-            });
+          gsap.to([cardOne, cardThree], {
+            y: 0,
+            rotationZ: 0,
+            duration: 0.75,
+            ease: "power3.inOut",
+          });
 
-            gsap.to([cardOne, cardThree], {
-              y: 0,
-              rotationZ: 0,
-              duration: 0.75,
-              ease: "power3.inOut",
-            });
-
-            isFlipAnimationCompleted = false;
-          }
-        },
-      });
-      return () => {};
+          isFlipAnimationCompleted = false;
+        }
+      },
     });
   }
 

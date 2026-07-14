@@ -34,6 +34,9 @@ const SCOPE_MAPPINGS = {
 // Map files to scope lookup
 function getFileScope(filePath) {
   const normalizedPath = filePath.replace(/\\/g, '/');
+  if (normalizedPath.startsWith('dist/')) {
+    return null;
+  }
   for (const [scope, paths] of Object.entries(SCOPE_MAPPINGS)) {
     if (paths.some(p => normalizedPath.includes(p))) {
       return scope;
