@@ -172,43 +172,52 @@ function initProcessCardAnimation() {
         }
 
         if (progress >= 0.35 && !isGapAnimationCompleted) {
-          gsap.to(cardContainer, {
-            gap: isMobile ? "10px" : "20px",
-            duration: 0.5,
-            ease: "power3.out",
-          });
+          if (isMobile) {
+            gsap.to(cardOne, { x: -85, duration: 0.5, ease: "power3.out" });
+            gsap.to(cardThree, { x: 85, duration: 0.5, ease: "power3.out" });
+          } else {
+            gsap.to(cardContainer, {
+              gap: "20px",
+              duration: 0.5,
+              ease: "power3.out",
+            });
 
-          gsap.to([cardOne, cardTwo, cardThree], {
-            borderRadius: "20px",
-            duration: 0.5,
-            ease: "power3.out",
-          });
+            gsap.to([cardOne, cardTwo, cardThree], {
+              borderRadius: "20px",
+              duration: 0.5,
+              ease: "power3.out",
+            });
+          }
 
           isGapAnimationCompleted = true;
         } else if (progress < 0.35 && isGapAnimationCompleted) {
-          gsap.to(cardContainer, {
-            gap: "0px",
-            duration: 0.5,
-            ease: "power3.out",
-          });
+          if (isMobile) {
+            gsap.to([cardOne, cardThree], { x: 0, duration: 0.5, ease: "power3.out" });
+          } else {
+            gsap.to(cardContainer, {
+              gap: "0px",
+              duration: 0.5,
+              ease: "power3.out",
+            });
 
-          gsap.to(cardOne, {
-            borderRadius: "20px 0 0 20px",
-            duration: 0.5,
-            ease: "power3.out",
-          });
+            gsap.to(cardOne, {
+              borderRadius: "20px 0 0 20px",
+              duration: 0.5,
+              ease: "power3.out",
+            });
 
-          gsap.to(cardTwo, {
-            borderRadius: "0px",
-            duration: 0.5,
-            ease: "power3.out",
-          });
+            gsap.to(cardTwo, {
+              borderRadius: "0px",
+              duration: 0.5,
+              ease: "power3.out",
+            });
 
-          gsap.to(cardThree, {
-            borderRadius: "0 20px 20px 0",
-            duration: 0.5,
-            ease: "power3.out",
-          });
+            gsap.to(cardThree, {
+              borderRadius: "0 20px 20px 0",
+              duration: 0.5,
+              ease: "power3.out",
+            });
+          }
 
           isGapAnimationCompleted = false;
         }
@@ -221,12 +230,29 @@ function initProcessCardAnimation() {
             stagger: 0.1,
           });
 
-          gsap.to([cardOne, cardThree], {
-            y: isMobile ? 15 : 30,
-            rotationZ: (i) => isMobile ? [-8, 8][i] : [-15, 15][i],
-            duration: 0.75,
-            ease: "power3.inOut",
-          });
+          if (isMobile) {
+            gsap.to(cardOne, {
+              x: -95,
+              y: 15,
+              rotationZ: -8,
+              duration: 0.75,
+              ease: "power3.inOut",
+            });
+            gsap.to(cardThree, {
+              x: 95,
+              y: 15,
+              rotationZ: 8,
+              duration: 0.75,
+              ease: "power3.inOut",
+            });
+          } else {
+            gsap.to([cardOne, cardThree], {
+              y: 30,
+              rotationZ: (i) => [-15, 15][i],
+              duration: 0.75,
+              ease: "power3.inOut",
+            });
+          }
 
           isFlipAnimationCompleted = true;
         } else if (progress < 0.7 && isFlipAnimationCompleted) {
@@ -237,12 +263,29 @@ function initProcessCardAnimation() {
             stagger: -0.1,
           });
 
-          gsap.to([cardOne, cardThree], {
-            y: 0,
-            rotationZ: 0,
-            duration: 0.75,
-            ease: "power3.inOut",
-          });
+          if (isMobile) {
+            gsap.to(cardOne, {
+              x: -85,
+              y: 0,
+              rotationZ: 0,
+              duration: 0.75,
+              ease: "power3.inOut",
+            });
+            gsap.to(cardThree, {
+              x: 85,
+              y: 0,
+              rotationZ: 0,
+              duration: 0.75,
+              ease: "power3.inOut",
+            });
+          } else {
+            gsap.to([cardOne, cardThree], {
+              y: 0,
+              rotationZ: 0,
+              duration: 0.75,
+              ease: "power3.inOut",
+            });
+          }
 
           isFlipAnimationCompleted = false;
         }
