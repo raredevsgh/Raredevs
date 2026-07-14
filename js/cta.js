@@ -57,15 +57,18 @@ function initCtaCopyAnimation() {
 
 // cta section - cards images animation
 function initCtaCardsAnimation() {
+  const isMobile = window.innerWidth < 1000;
+  
+  const leftXValues = isMobile ? [-240, -280, -140] : [-800, -900, -400];
+  const rightXValues = isMobile ? [240, 280, 140] : [800, 900, 400];
+  const leftRotationValues = isMobile ? [-12, -8, -15] : [-30, -20, -35];
+  const rightRotationValues = isMobile ? [12, 8, 15] : [30, 20, 35];
+  const yValues = isMobile ? [30, -50, -120] : [100, -150, -400];
+
   gsap.utils.toArray(".cta-row").forEach((row, index) => {
     const cardLeft = row.querySelector(".cta-card-left");
     const cardRight = row.querySelector(".cta-card-right");
-
-    const leftXValues = [-800, -900, -400];
-    const rightXValues = [800, 900, 400];
-    const leftRotationValues = [-30, -20, -35];
-    const rightRotationValues = [30, 20, 35];
-    const yValues = [100, -150, -400];
+    if (!cardLeft || !cardRight) return;
 
     gsap.to(cardLeft, {
       x: leftXValues[index],
