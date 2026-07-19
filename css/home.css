@@ -497,7 +497,7 @@
 }
 
 .process #card-3 .card-back {
-  background: linear-gradient(to bottom, #b8b9ab, #f0eedf);
+  background: linear-gradient(to bottom, #b4b5a7 0%, #b4b5a7 42%, #f0eedf 100%);
   color: #141414;
 }
 
@@ -576,7 +576,7 @@
 
   .process #card-3 .card-front,
   .process #card-3 .card-front img {
-    background: linear-gradient(to bottom, #b8b9ab, #f0eedf);
+    background: linear-gradient(to bottom, #b4b5a7 0%, #b4b5a7 42%, #f0eedf 100%);
   }
 
   .process #card-3 .card-front .desktop-only {
