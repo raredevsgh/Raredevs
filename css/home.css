@@ -560,6 +560,11 @@
     transform: none;
   }
 
+  .process .card-front img {
+    object-fit: contain;
+    background-color: #141414;
+  }
+
   .process #card-3 .card-front .desktop-only {
     opacity: 0;
     pointer-events: none;
@@ -568,8 +573,6 @@
   .process #card-3 .card-front .mobile-only {
     opacity: 1;
     pointer-events: auto;
-    object-fit: contain;
-    background-color: #141414;
   }
 }
 
