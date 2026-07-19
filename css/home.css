@@ -560,13 +560,23 @@
     transform: none;
   }
 
-  .process .card-front {
-    background-color: var(--base-300);
-  }
-
   .process .card-front img {
     object-fit: contain;
-    background-color: var(--base-300);
+  }
+
+  .process #card-1 .card-front,
+  .process #card-1 .card-front img {
+    background-color: #121212;
+  }
+
+  .process #card-2 .card-front,
+  .process #card-2 .card-front img {
+    background-color: var(--base-500);
+  }
+
+  .process #card-3 .card-front,
+  .process #card-3 .card-front img {
+    background-color: #ffffff;
   }
 
   .process #card-3 .card-front .desktop-only {
