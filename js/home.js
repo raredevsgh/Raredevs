@@ -130,6 +130,24 @@ function initProcessCardAnimation() {
         });
       });
 
+      // Mobile scroll animation for sticky header
+      gsap.fromTo(
+        stickyHeader,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".sticky-header",
+            start: "top 90%",
+            end: "top 60%",
+            scrub: 1.5,
+          },
+        }
+      );
+
       // Mobile scroll animation for cards
       processCards.forEach((card, index) => {
         const tl = gsap.timeline({
