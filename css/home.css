@@ -498,7 +498,7 @@
 
 .process #card-3 .card-back {
   background-color: #ffffff;
-  color: #141414;
+  color: #000000;
 }
 
 .process #card-3 .card-back span {
@@ -507,7 +507,7 @@
 }
 
 .process #card-3 .card-back .card-stage {
-  color: #141414;
+  color: #000000;
   opacity: 0.35;
 }
 
