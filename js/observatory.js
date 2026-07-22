@@ -46,7 +46,7 @@ function initTeamCards() {
   const countContainer = document.querySelector(".count-container");
   if (!stickySection || !cards.length || !countContainer) return;
 
-  const stickyHeight = window.innerHeight * 4.5;
+  const stickyHeight = window.innerHeight * 2.5;
   const totalCards = cards.length;
   const totalSteps = Math.max(1, Math.min(totalCards, countContainer.children.length));
 
@@ -58,9 +58,9 @@ function initTeamCards() {
 
   const arcAngle = Math.PI * 0.4;
   const startAngle = Math.PI / 2 - arcAngle / 2;
-  const cardSpacing = 0.15;
-  const startArcProgress = -0.85;
-  const totalTravel = 1.6;
+  const cardSpacing = 0.125;
+  const startArcProgress = -0.675;
+  const totalTravel = 1.3;
 
   function positionCards(progress = 0) {
     const radius = getRadius();
