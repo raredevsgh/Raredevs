@@ -42,8 +42,8 @@ function initCtaCopyAnimation() {
 
   const scrollTriggerSettings = {
     trigger: ".cta",
-    start: "top 25%",
-    toggleActions: "play reverse play reverse",
+    start: "top 80%",
+    toggleActions: "play none none none",
   };
 
   gsap.to(split.lines, {
@@ -71,8 +71,8 @@ function initCtaCardsAnimation() {
       x: leftXValues[index],
       scrollTrigger: {
         trigger: ".cta",
-        start: "top center",
-        end: "150% bottom",
+        start: "top bottom",
+        end: "bottom top",
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
@@ -96,8 +96,8 @@ function initCtaCardsAnimation() {
 function initCtaLogoAnimation() {
   const scrollTriggerSettings = {
     trigger: ".cta",
-    start: "top 25%",
-    toggleActions: "play reverse play reverse",
+    start: "top 80%",
+    toggleActions: "play none none none",
   };
 
   gsap.to(".cta-logo", {
@@ -115,8 +115,8 @@ function initCtaButtonAnimation() {
 
   const scrollTriggerSettings = {
     trigger: ".cta",
-    start: "top 25%",
-    toggleActions: "play reverse play reverse",
+    start: "top 80%",
+    toggleActions: "play none none none",
   };
 
   gsap.set(btn, { y: 25, opacity: 0 });
