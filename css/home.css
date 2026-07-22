@@ -497,17 +497,21 @@
 }
 
 .process #card-3 .card-back {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.process #card-3 .card-back p {
+  color: #000000 !important;
 }
 
 .process #card-3 .card-back span {
-  color: var(--base-500);
+  color: #000000 !important;
   opacity: 0.8;
 }
 
 .process #card-3 .card-back .card-stage {
-  color: #000000;
+  color: #000000 !important;
   opacity: 0.35;
 }
 
@@ -789,7 +793,7 @@
   .cta .cta-row .cta-card {
     height: 200px;
     border-radius: 0.5rem;
-    opacity: 0;
+    opacity: 1;
   }
 
   .cta .cta-row .cta-card .cta-card-frame .cta-card-gradient {
